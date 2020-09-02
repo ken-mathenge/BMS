@@ -1,0 +1,44 @@
+scalar Time
+
+type Employee {
+  id: ID!
+  name: String!
+  gender: String! # Explore enums
+  idNumber: Int!
+  position: [String!]!
+}
+
+type Customer {
+  id: ID!
+  timeIn: Time!
+  timeOut: Time!
+  service: [String!]!
+  pay: Int! # maybe currency
+}
+
+type Service {
+  service: [String!]!
+}
+
+type Mutation {
+  createEmployee(
+    name: String!
+    gender: String!
+    idNumber: Int!
+    position: [String!]!
+  ): Employee!
+  createCustomer(
+    id: ID
+    timeIn: Time!
+    timeOut: Time!
+    service: [String!]!
+    pay: Int!
+  ): Customer!
+  createService(service: [String!]!): Service!
+}
+
+type Query {
+  employees(employeeID: String!): [Employee!]!
+  customers(customerID: String!): [Customer!]!
+  services: [Service!]!
+}

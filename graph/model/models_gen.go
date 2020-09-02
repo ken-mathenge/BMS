@@ -2,19 +2,26 @@
 
 package model
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+import (
+	"time"
+)
+
+type Customer struct {
+	ID      string    `json:"id"`
+	TimeIn  time.Time `json:"timeIn"`
+	TimeOut time.Time `json:"timeOut"`
+	Service []string  `json:"service"`
+	Pay     int       `json:"pay"`
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+type Employee struct {
+	ID       string   `json:"id"`
+	Name     string   `json:"name"`
+	Gender   string   `json:"gender"`
+	IDNumber int      `json:"idNumber"`
+	Position []string `json:"position"`
 }
 
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+type Service struct {
+	Service []string `json:"service"`
 }
